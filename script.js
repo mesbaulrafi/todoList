@@ -3,7 +3,7 @@ let todoList = document.getElementById("todoList");
 
 function addTask() {
     if (inputBox.value === "") {
-        alert("Plse add")
+        alert("Add Task")
     } else {
         let li = document.createElement('li')
         li.innerHTML = inputBox.value

@@ -3,11 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background-color: #121212; 
-    color: #e5e5e5;
+    background-color: #848586e5; 
+    color: #1f2937; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,74 +18,82 @@ body {
 
 .container {
     width: 100%;
-    max-width: 600px;
+    max-width: 520px; 
 }
 
 .todo-card {
-    background-color: #1e1e1e; 
-    border: 1px solid #333333;
-    border-radius: 16px;
-    padding: 40px 35px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    background-color: #aeb4b6; 
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 24px; 
+    padding: 40px;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05), 0 5px 15px -3px rgba(0, 0, 0, 0.03);
 }
 
 .todo-header {
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .todo-header h2 {
-    font-size: 32px;
-    font-weight: 600;
-    color: #ffffff;
-    margin-bottom: 8px;
+    font-size: 30px;
+    font-weight: 700;
+    color: #111827;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
 }
 
 .subtitle {
-    font-size: 16px;
-    color: #a3a3a3;
+    font-size: 15px;
+    color: #6b7280; 
 }
 
 /* Input Area */
 .input-section {
     display: flex;
     gap: 12px;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .task-input {
     flex: 1;
-    background-color: #2a2a2a;
-    border: 1px solid #404040;
-    color: #ffffff;
+    background-color: #e8e8e8; 
+    border: 1px solid #e5e7eb;
+    color: #111827;
     padding: 16px 20px;
-    border-radius: 10px;
-    font-size: 18px;
+    border-radius: 14px;
+    font-size: 16px;
     outline: none;
-    transition: border-color 0.2s;
+    transition: all 0.2s ease;
 }
 
 .task-input::placeholder {
-    color: #737373;
+    color: #9ca3af;
 }
 
 .task-input:focus {
-    border-color: #3b82f6; 
+    border-color: #3b82f6;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1); 
 }
 
 .add-btn {
-    background-color: #3b82f6;
+    background-color: #3b82f6; 
     color: #ffffff;
     border: none;
-    padding: 0 30px;
-    border-radius: 10px;
-    font-size: 18px;
-    font-weight: 500;
+    padding: 0 28px;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: all 0.2s ease;
 }
 
 .add-btn:hover {
     background-color: #2563eb;
+    transform: translateY(-1px); 
+}
+
+.add-btn:active {
+    transform: translateY(1px);
 }
 
 /* Task List */
@@ -93,21 +102,22 @@ body {
 }
 
 .task-list li {
-    background-color: #2a2a2a;
-    border: 1px solid #333333;
-    padding: 18px 20px;
-    border-radius: 10px;
+    background-color: #e1f4fc;
+    border: 1px solid #f3f4f6; 
+    padding: 16px 20px;
+    border-radius: 14px;
     margin-bottom: 12px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 18px;
-    transition: background-color 0.2s;
-    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.01);
 }
 
 .task-list li:hover {
-    background-color: #333333;
+    background-color: #f9fafb;
+    border-color: #e5e7eb;
+    transform: translateX(2px); 
 }
 
 /* Task Text & Checkbox */
@@ -118,12 +128,19 @@ body {
 }
 
 .checkbox {
-    width: 24px;
-    height: 24px;
-    border: 2px solid #525252;
-    border-radius: 6px;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #d1d5db;
+    border-radius: 7px;
     display: inline-block;
     position: relative;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+}
+
+
+.task-list li.completed {
+    opacity: 0.5;
 }
 
 .task-list li.completed .checkbox {
@@ -134,18 +151,25 @@ body {
 .task-list li.completed .checkbox::after {
     content: '';
     position: absolute;
-    left: 7px;
-    top: 3px;
+    left: 6px;
+    top: 2px;
     width: 5px;
-    height: 11px;
+    height: 10px;
     border: solid white;
-    border-width: 0 2.5px 2.5px 0;
+    border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
 
+.task-text {
+    font-size: 16px;
+    color: #374151;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
 .task-list li.completed .task-text {
-    color: #737373;
     text-decoration: line-through;
+    color: #9ca3af;
 }
 
 /* Delete Button */
@@ -153,72 +177,49 @@ body {
     background: none;
     border: none;
     color: #ef4444; 
-    font-size: 28px;
+    font-size: 22px;
     cursor: pointer;
-    line-height: 1;
-    padding: 0 5px;
-    opacity: 0.7;
-    transition: opacity 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    opacity: 0; 
+    transition: all 0.2s ease;
+}
+
+
+.task-list li:hover .delete-btn {
+    opacity: 0.6;
 }
 
 .delete-btn:hover {
-    opacity: 1;
+    opacity: 1 !important;
+    background-color: #fee2e2; 
 }
 
 /* Responsive Design */
-
 @media screen and (max-width: 600px) {
     .todo-card {
-        padding: 30px 25px;
+        padding: 30px 24px;
+        border-radius: 20px;
     }
 
     .todo-header h2 {
         font-size: 26px;
     }
 
-    .subtitle {
-        font-size: 14px;
+    .task-input, .add-btn, .task-text {
+        font-size: 15px;
     }
-
-    .task-input {
-        padding: 14px 16px;
-        font-size: 16px;
-    }
-
-    .add-btn {
-        padding: 0 20px;
-        font-size: 16px;
-    }
-
-    .task-list li {
-        padding: 15px 16px;
-        font-size: 16px;
-    }
-
-    .checkbox {
-        width: 20px;
-        height: 20px;
-    }
-
-    .task-list li.completed .checkbox::after {
-        left: 6px;
-        top: 2px;
-        width: 4px;
-        height: 9px;
-    }
-
+    
     .delete-btn {
-        font-size: 24px;
+        opacity: 0.6;
     }
 }
 
-/* For Extra Small Devices */
-
-@media screen and (max-width: 400px) {
-    .todo-card {
-        padding: 25px 20px;
-    }
-
+@media screen and (max-width: 440px) {
     .input-section {
         flex-direction: column;
         gap: 10px;
@@ -226,10 +227,6 @@ body {
 
     .add-btn {
         width: 100%;
-        padding: 12px;
-    }
-    
-    .todo-header h2 {
-        font-size: 24px;
+        padding: 14px;
     }
 }

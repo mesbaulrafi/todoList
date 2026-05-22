@@ -1,17 +1,17 @@
-let inputBox = document.getElementById("inputBox")
+let todoInput = document.getElementById("todoInput")
 let todoList = document.getElementById("todoList");
 
 function addTask() {
-    if (inputBox.value === "") {
+    if (todoInput.value === "") {
         alert("Add Task")
     } else {
         let li = document.createElement('li')
-        li.innerHTML = inputBox.value
+        li.innerHTML = todoInput.value
         todoList.appendChild(li)
         let span = document.createElement("span")
         span.innerHTML = "\u00d7"
         li.appendChild(span)
-        inputBox.value = ""
+        todoInput.value = ""
         saveData()
     }
 }
